@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search, Play, Fingerprint, Landmark, FileStack, HeartHandshake, Receipt,
   Linkedin, Instagram, Facebook, Twitter, Globe, Upload, Star,
