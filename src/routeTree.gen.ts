@@ -16,6 +16,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as TrackIndexRouteImport } from './routes/track.index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as TrackRefNumberRouteImport } from './routes/track.$refNumber'
 import { Route as ServicesCategoryIndexRouteImport } from './routes/services.$category.index'
 import { Route as ServicesCategoryServiceIdRouteImport } from './routes/services.$category.$serviceId'
 
@@ -54,6 +55,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/services/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackRefNumberRoute = TrackRefNumberRouteImport.update({
+  id: '/track/$refNumber',
+  path: '/track/$refNumber',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ServicesCategoryIndexRoute = ServicesCategoryIndexRouteImport.update({
   id: '/services/$category/',
   path: '/services/$category/',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/track/$refNumber': typeof TrackRefNumberRoute
   '/services/': typeof ServicesIndexRoute
   '/track/': typeof TrackIndexRoute
   '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/track/$refNumber': typeof TrackRefNumberRoute
   '/services': typeof ServicesIndexRoute
   '/track': typeof TrackIndexRoute
   '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/forgot-password': typeof ForgotPasswordRoute
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
+  '/track/$refNumber': typeof TrackRefNumberRoute
   '/services/': typeof ServicesIndexRoute
   '/track/': typeof TrackIndexRoute
   '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/track/$refNumber'
     | '/services/'
     | '/track/'
     | '/services/$category/$serviceId'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/track/$refNumber'
     | '/services'
     | '/track'
     | '/services/$category/$serviceId'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/register'
+    | '/track/$refNumber'
     | '/services/'
     | '/track/'
     | '/services/$category/$serviceId'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   ForgotPasswordRoute: typeof ForgotPasswordRoute
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
+  TrackRefNumberRoute: typeof TrackRefNumberRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   TrackIndexRoute: typeof TrackIndexRoute
   ServicesCategoryServiceIdRoute: typeof ServicesCategoryServiceIdRoute
@@ -199,6 +212,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track/$refNumber': {
+      id: '/track/$refNumber'
+      path: '/track/$refNumber'
+      fullPath: '/track/$refNumber'
+      preLoaderRoute: typeof TrackRefNumberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/services/$category/': {
       id: '/services/$category/'
       path: '/services/$category'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   ForgotPasswordRoute: ForgotPasswordRoute,
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
+  TrackRefNumberRoute: TrackRefNumberRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   TrackIndexRoute: TrackIndexRoute,
   ServicesCategoryServiceIdRoute: ServicesCategoryServiceIdRoute,
