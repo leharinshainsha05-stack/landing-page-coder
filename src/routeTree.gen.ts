@@ -16,6 +16,7 @@ import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesCategoryIndexRouteImport } from './routes/services.$category.index'
+import { Route as ServicesCategoryServiceIdRouteImport } from './routes/services.$category.$serviceId'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
@@ -52,6 +53,12 @@ const ServicesCategoryIndexRoute = ServicesCategoryIndexRouteImport.update({
   path: '/services/$category/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesCategoryServiceIdRoute =
+  ServicesCategoryServiceIdRouteImport.update({
+    id: '/services/$category/$serviceId',
+    path: '/services/$category/$serviceId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -60,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/services/': typeof ServicesIndexRoute
+  '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
   '/services/$category/': typeof ServicesCategoryIndexRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +77,7 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/services': typeof ServicesIndexRoute
+  '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
   '/services/$category': typeof ServicesCategoryIndexRoute
 }
 export interface FileRoutesById {
@@ -79,6 +88,7 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/register': typeof RegisterRoute
   '/services/': typeof ServicesIndexRoute
+  '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
   '/services/$category/': typeof ServicesCategoryIndexRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +100,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/services/'
+    | '/services/$category/$serviceId'
     | '/services/$category/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +110,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/services'
+    | '/services/$category/$serviceId'
     | '/services/$category'
   id:
     | '__root__'
@@ -108,6 +120,7 @@ export interface FileRouteTypes {
     | '/login'
     | '/register'
     | '/services/'
+    | '/services/$category/$serviceId'
     | '/services/$category/'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +131,7 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   RegisterRoute: typeof RegisterRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
+  ServicesCategoryServiceIdRoute: typeof ServicesCategoryServiceIdRoute
   ServicesCategoryIndexRoute: typeof ServicesCategoryIndexRoute
 }
 
@@ -172,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesCategoryIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/$category/$serviceId': {
+      id: '/services/$category/$serviceId'
+      path: '/services/$category/$serviceId'
+      fullPath: '/services/$category/$serviceId'
+      preLoaderRoute: typeof ServicesCategoryServiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -182,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   RegisterRoute: RegisterRoute,
   ServicesIndexRoute: ServicesIndexRoute,
+  ServicesCategoryServiceIdRoute: ServicesCategoryServiceIdRoute,
   ServicesCategoryIndexRoute: ServicesCategoryIndexRoute,
 }
 export const routeTree = rootRouteImport
