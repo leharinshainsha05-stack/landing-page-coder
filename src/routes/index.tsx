@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Search, Play, Fingerprint, Landmark, FileStack, HeartHandshake, Receipt,
   Linkedin, Instagram, Facebook, Twitter, Globe, Upload, Star,
@@ -67,7 +67,10 @@ function Index() {
           <a href="#service" className="hover:opacity-70">Service</a>
           <a href="#demo" className="hover:opacity-70">Demo</a>
         </nav>
-        <div className="text-primary text-xs sm:text-sm font-medium">23-02-2026 17:33</div>
+        <div className="flex items-center gap-2 text-primary text-xs sm:text-sm font-medium">
+          <Link to="/login" className="px-3 py-1.5 hover:opacity-70">Login</Link>
+          <Link to="/register" className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md">Register</Link>
+        </div>
       </header>
 
       <section className="px-6 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
@@ -84,8 +87,8 @@ function Index() {
             <p>Access over 150 government services like Income, Nativity, and First Graduate certificates directly from your home.</p>
           </div>
           <div className="flex gap-3 pt-2">
-            <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90">Explore All Services</button>
-            <button className="bg-card border border-primary/30 text-primary px-5 py-2.5 rounded-md text-sm font-medium hover:bg-secondary">Track Application</button>
+            <Link to="/services" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90">Explore All Services</Link>
+            <Link to="/track" className="bg-card border border-primary/30 text-primary px-5 py-2.5 rounded-md text-sm font-medium hover:bg-secondary">Track Application</Link>
           </div>
         </div>
         <div className="flex justify-center">

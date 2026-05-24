@@ -9,38 +9,188 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ForgotPasswordRouteImport } from './routes/forgot-password'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as TrackIndexRouteImport } from './routes/track.index'
+import { Route as ServicesIndexRouteImport } from './routes/services.index'
+import { Route as TrackRefNumberRouteImport } from './routes/track.$refNumber'
+import { Route as ServicesCategoryIndexRouteImport } from './routes/services.$category.index'
+import { Route as ServicesCategoryServiceIdRouteImport } from './routes/services.$category.$serviceId'
 
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ForgotPasswordRoute = ForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TrackIndexRoute = TrackIndexRouteImport.update({
+  id: '/track/',
+  path: '/track/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrackRefNumberRoute = TrackRefNumberRouteImport.update({
+  id: '/track/$refNumber',
+  path: '/track/$refNumber',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCategoryIndexRoute = ServicesCategoryIndexRouteImport.update({
+  id: '/services/$category/',
+  path: '/services/$category/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesCategoryServiceIdRoute =
+  ServicesCategoryServiceIdRouteImport.update({
+    id: '/services/$category/$serviceId',
+    path: '/services/$category/$serviceId',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/track/$refNumber': typeof TrackRefNumberRoute
+  '/services/': typeof ServicesIndexRoute
+  '/track/': typeof TrackIndexRoute
+  '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
+  '/services/$category/': typeof ServicesCategoryIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/track/$refNumber': typeof TrackRefNumberRoute
+  '/services': typeof ServicesIndexRoute
+  '/track': typeof TrackIndexRoute
+  '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
+  '/services/$category': typeof ServicesCategoryIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
+  '/forgot-password': typeof ForgotPasswordRoute
+  '/login': typeof LoginRoute
+  '/register': typeof RegisterRoute
+  '/track/$refNumber': typeof TrackRefNumberRoute
+  '/services/': typeof ServicesIndexRoute
+  '/track/': typeof TrackIndexRoute
+  '/services/$category/$serviceId': typeof ServicesCategoryServiceIdRoute
+  '/services/$category/': typeof ServicesCategoryIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/forgot-password'
+    | '/login'
+    | '/register'
+    | '/track/$refNumber'
+    | '/services/'
+    | '/track/'
+    | '/services/$category/$serviceId'
+    | '/services/$category/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/forgot-password'
+    | '/login'
+    | '/register'
+    | '/track/$refNumber'
+    | '/services'
+    | '/track'
+    | '/services/$category/$serviceId'
+    | '/services/$category'
+  id:
+    | '__root__'
+    | '/'
+    | '/dashboard'
+    | '/forgot-password'
+    | '/login'
+    | '/register'
+    | '/track/$refNumber'
+    | '/services/'
+    | '/track/'
+    | '/services/$category/$serviceId'
+    | '/services/$category/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
+  ForgotPasswordRoute: typeof ForgotPasswordRoute
+  LoginRoute: typeof LoginRoute
+  RegisterRoute: typeof RegisterRoute
+  TrackRefNumberRoute: typeof TrackRefNumberRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+  TrackIndexRoute: typeof TrackIndexRoute
+  ServicesCategoryServiceIdRoute: typeof ServicesCategoryServiceIdRoute
+  ServicesCategoryIndexRoute: typeof ServicesCategoryIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forgot-password': {
+      id: '/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof ForgotPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,22 +198,56 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/track/': {
+      id: '/track/'
+      path: '/track'
+      fullPath: '/track/'
+      preLoaderRoute: typeof TrackIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/track/$refNumber': {
+      id: '/track/$refNumber'
+      path: '/track/$refNumber'
+      fullPath: '/track/$refNumber'
+      preLoaderRoute: typeof TrackRefNumberRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$category/': {
+      id: '/services/$category/'
+      path: '/services/$category'
+      fullPath: '/services/$category/'
+      preLoaderRoute: typeof ServicesCategoryIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$category/$serviceId': {
+      id: '/services/$category/$serviceId'
+      path: '/services/$category/$serviceId'
+      fullPath: '/services/$category/$serviceId'
+      preLoaderRoute: typeof ServicesCategoryServiceIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
+  ForgotPasswordRoute: ForgotPasswordRoute,
+  LoginRoute: LoginRoute,
+  RegisterRoute: RegisterRoute,
+  TrackRefNumberRoute: TrackRefNumberRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+  TrackIndexRoute: TrackIndexRoute,
+  ServicesCategoryServiceIdRoute: ServicesCategoryServiceIdRoute,
+  ServicesCategoryIndexRoute: ServicesCategoryIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
