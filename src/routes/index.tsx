@@ -67,7 +67,10 @@ function Index() {
           <a href="#service" className="hover:opacity-70">Service</a>
           <a href="#demo" className="hover:opacity-70">Demo</a>
         </nav>
-        <div className="text-primary text-xs sm:text-sm font-medium">23-02-2026 17:33</div>
+        <div className="flex items-center gap-2 text-primary text-xs sm:text-sm font-medium">
+          <Link to="/login" className="px-3 py-1.5 hover:opacity-70">Login</Link>
+          <Link to="/register" className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md">Register</Link>
+        </div>
       </header>
 
       <section className="px-6 md:px-16 pt-8 pb-20 grid md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
