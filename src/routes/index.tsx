@@ -84,8 +84,8 @@ function Index() {
             <p>Access over 150 government services like Income, Nativity, and First Graduate certificates directly from your home.</p>
           </div>
           <div className="flex gap-3 pt-2">
-            <button className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90">Explore All Services</button>
-            <button className="bg-card border border-primary/30 text-primary px-5 py-2.5 rounded-md text-sm font-medium hover:bg-secondary">Track Application</button>
+            <Link to="/services" className="bg-primary text-primary-foreground px-5 py-2.5 rounded-md text-sm font-medium hover:opacity-90">Explore All Services</Link>
+            <Link to="/track" className="bg-card border border-primary/30 text-primary px-5 py-2.5 rounded-md text-sm font-medium hover:bg-secondary">Track Application</Link>
           </div>
         </div>
         <div className="flex justify-center">
